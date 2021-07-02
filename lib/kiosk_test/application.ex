@@ -57,7 +57,8 @@ defmodule KioskTest.Application do
     # Need to set the cache dir to not reside in /tmp/...
     System.put_env("XDG_RUNTIME_DIR", "/root/cache/")
     # Not sure these are needed now... but it's working and it's late ;)
-    System.put_env("QTWEBENGINE_CHROMIUM_FLAGS", " --no-sandbox --remote-debugging-port=1234  ")
+    # System.put_env("QTWEBENGINE_CHROMIUM_FLAGS", " --no-sandbox --remote-debugging-port=1234  ")
+    # System.put_env("QTWEBENGINE_CHROMIUM_FLAGS", " --no-sandbox ")
 
     # webengine (aka chromium) uses /dev/shm for shared memory.
     # On Nerves it maps to devtmpfs which is waay too small.
