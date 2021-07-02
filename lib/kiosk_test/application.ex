@@ -54,12 +54,16 @@ defmodule KioskTest.Application do
   def init_kiosk(udev_init \\ true) do
     if udev_init, do: platform_init_events()
 
+    # Need to set the cache dir to not reside in /tmp/...
     System.put_env("XDG_RUNTIME_DIR", "/root/cache/")
+    # Not sure these are needed now... but it's working and it's late ;)
     System.put_env("QTWEBENGINE_CHROMIUM_FLAGS", " --no-sandbox --remote-debugging-port=1234  ")
 
+    # webengine (aka chromium) uses /dev/shm for shared memory.
+    # On Nerves it maps to devtmpfs which is waay too small.
+    # Haven't found an option to set the shm file, so we get this hack:
     File.rm_rf "/root/shm"
     File.mkdir_p! "/root/shm"
-    # File.rmdir! "/dev/shm"
     File.rm_rf "/dev/shm"
     File.ln_s! "/root/shm", "/dev/shm"
 
