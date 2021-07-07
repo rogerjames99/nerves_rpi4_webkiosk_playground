@@ -40,14 +40,15 @@ defmodule KioskTest.MixProject do
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.4.0", targets: @all_targets},
 
-      {:webengine_kiosk, "~> 0.3.0", github: "nerves-web-kiosk/webengine_kiosk"},
+      {:webengine_kiosk, "~> 0.4.0", path: "../webengine_kiosk"},
+      # {:webengine_kiosk, "~> 0.4.0", github: "elcritch/webengine_kiosk", branch: "devel"},
 
       # Dependencies for specific targets
       # {:nerves_system_rpi4, "~> 1.13", runtime: false, targets: :rpi4},
 
       {:nerves_system_rpi4, "~> 1.16.0-webengineV2",
         github: "elcritch/nerves_system_rpi4",
-        tag: "v1.16.0-webengineV2",
+        tag: "v1.16.0-webengineV3",
         runtime: false,
         targets: [:rpi4_kiosk]},
 
