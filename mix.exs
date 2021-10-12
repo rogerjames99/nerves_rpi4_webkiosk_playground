@@ -1,7 +1,7 @@
-defmodule KioskTest.MixProject do
+defmodule NervesWebKioskPlayground.MixProject do
   use Mix.Project
 
-  @app :kiosk_test
+  @app :nerves_web_kiosk_playground
   @version "0.1.0"
   @all_targets [:rpi3, :rpi3a, :rpi4, :x86_64, :rpi4_kiosk]
 
@@ -22,7 +22,7 @@ defmodule KioskTest.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {KioskTest.Application, []},
+      mod: {NervesWebKioskPlayground.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

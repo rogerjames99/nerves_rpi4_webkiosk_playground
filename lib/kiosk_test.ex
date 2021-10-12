@@ -1,6 +1,6 @@
-defmodule KioskTest do
+defmodule NervesWebKioskPlayground do
   @moduledoc """
-  Documentation for KioskTest.
+  Documentation for NervesWebKioskPlayground.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule KioskTest do
 
   ## Examples
 
-      iex> KioskTest.hello
+      iex> NervesWebKioskPlayground.hello
       :world
 
   """

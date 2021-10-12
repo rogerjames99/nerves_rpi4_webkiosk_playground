@@ -1,8 +1,8 @@
-defmodule KioskTestTest do
+defmodule NervesWebKioskPlaygroundTest do
   use ExUnit.Case
-  doctest KioskTest
+  doctest NervesWebKioskPlayground
 
   test "greets the world" do
-    assert KioskTest.hello() == :world
+    assert NervesWebKioskPlayground.hello() == :world
   end
 end

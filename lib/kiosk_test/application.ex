@@ -1,4 +1,4 @@
-defmodule KioskTest.Application do
+defmodule NervesWebKioskPlayground.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -23,7 +23,7 @@ defmodule KioskTest.Application do
 
   def start(_type, _args) do
     # See https://hexdocs.pm/elixir/Supervisor.html
-    opts = [strategy: :one_for_one, name: KioskTest.Supervisor]
+    opts = [strategy: :one_for_one, name: NervesWebKioskPlayground.Supervisor]
 
     children =
       [
@@ -36,7 +36,7 @@ defmodule KioskTest.Application do
   # List all child processes to be supervised
   def children(:host) do
     [
-      # {KioskTest.Worker, arg},
+      # {NervesWebKioskPlayground.Worker, arg},
     ]
   end
 
@@ -46,7 +46,7 @@ defmodule KioskTest.Application do
   end
 
   def target() do
-    Application.get_env(:kiosk_test, :target)
+    Application.get_env(:nerves_web_kiosk_playground, :target)
   end
 
 end

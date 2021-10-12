@@ -1,4 +1,4 @@
-# KioskTest
+# NervesWebKioskPlayground
 
 **TODO: Add description**
 
