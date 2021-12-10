@@ -40,8 +40,8 @@ defmodule NervesWebKioskPlayground.MixProject do
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.4.0", targets: @all_targets},
 
-      {:webengine_kiosk, "~> 0.4.0", path: "../webengine_kiosk"},
-      # {:webengine_kiosk, "~> 0.4.0", github: "elcritch/webengine_kiosk", branch: "devel"},
+      # {:webengine_kiosk, "~> 0.4.0", path: "../webengine_kiosk", app: false},
+      {:webengine_kiosk, "~> 0.4.0", github: "elcritch/webengine_kiosk"},
 
       # Dependencies for specific targets
       # {:nerves_system_rpi4, "~> 1.13", runtime: false, targets: :rpi4},
