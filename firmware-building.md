@@ -1,6 +1,10 @@
 # Building rpi4_webkiosk_playground
 
-These instructions document what I  did to build rpi4_wbekiosk_playground on my Ubuntu 21.10 system.
+These instructions document what I  did to build rpi4_webkiosk_playground on my Ubuntu 21.10 system.
+
+## Summary
+
+Set MIX_TARGET to rpi4_kiosk
 
 ## Setting up the environment
 
@@ -16,15 +20,7 @@ roger@dragon:~$ echo $MIX_TARGET
 rpi4_kiosk
 ```
 
-If you make any changes here. You must remember to run mix local.hex followed by mix local.rebar
-
-```
-roger@dragon:~$ mix local.rebar
-.asdf/installs/elixir/1.13.0-otp-24/.mix/rebar already exists, overwrite? [Yn] n
-.asdf/installs/elixir/1.13.0-otp-24/.mix/rebar3 already exists, overwrite? [Yn] n
-```
-
-The next important step is to ensure that the required qt5 packages installed. This is what is on my system.
+The next important step is to ensure that the required qt5 are packages installed. This is what is on my system. There are probably a lot of redundant packages here.  
 
 ```
 roger@dragon:~$ dpkg -l|grep libqt5
@@ -116,7 +112,7 @@ ii  libqt5xmlpatterns5:amd64                                    5.15.2-3        
 ii  libqt5xmlpatterns5-dev:amd64                                5.15.2-3                                        amd64        Qt 5 XML patterns development files 
 ```
 
-There are probably a lot of redundant packages here.  A basic qt5 installation is required on your host machine because the webengine_kiosk dependency is compiled using elixir_make. This uses the Makefile in root of webengine_kiosk dependency. This makefile calls qmake to compile the code. qmake creates yet another makefile at
+A basic qt5 installation is required on your host machine because the webengine_kiosk dependency is compiled using elixir_make. This uses the Makefile in root of webengine_kiosk dependency. This makefile calls qmake to compile the code. qmake creates yet another makefile at
 
 ```
 _build/rpi4_kiosk_dev/lib/webengine_kiosk/obj/Makefile
@@ -124,11 +120,11 @@ _build/rpi4_kiosk_dev/lib/webengine_kiosk/obj/Makefile
 
 It is this makefile that actually does the work of cross compiling the dependency using a nerves sysroot.
 
-If you clone my  repo from https://github.com/rogerjames/99/nerves_rpi4_webkiosk_playground and switch to the "roger" branch, the you should have the fix you need to build successfully. If you do not the only change change the :webengine_kiosk dependency to pull from github rather than the local filesystem.
+If you clone my  repo from https://github.com/rogerjames/99/nerves_rpi4_webkiosk_playground and switch to the "roger" branch, the you should have the fix you need to build successfully. If you do not the only change is to the :webengine_kiosk dependency. This need to pull from github rather than the local filesystem.
 
 ## Building
 
-To build the firmware you need to a mix deps.update --all followed by a mix firmware. This is the output I get on my system. You can probably get away with just a mix deps.get instead of the update.
+To build the firmware you need to a mix deps. followed by a mix firmware. This is the output I get on my system. You can probably get away with just a mix deps.get instead of the update.
 
 ```
 roger@dragon:~/nerves/nerves_rpi4_webkiosk_playground$ mix deps.update --all
