@@ -116,13 +116,19 @@ ii  libqt5xmlpatterns5:amd64                                    5.15.2-3        
 ii  libqt5xmlpatterns5-dev:amd64                                5.15.2-3                                        amd64        Qt 5 XML patterns development files 
 ```
 
-The important ones are libqt5webengine5 and libqt5virtualkeyboard5. If you get errors related to missing Qt packages during the mix firmware phase you may need to install more. Remember the the the rpi4_kiosk target builds the QT packages for the pi using qmake's own cross compilation system running on your host machine. So you need the qt stuff on your even if you never use any of its binaries.
+There are probably a lot of redundant packages here.  A basic qt5 installation is required on your host machine because the webengine_kiosk dependency is compiled using elixir_make. This uses the Makefile in root of webengine_kiosk dependency. This makefile calls qmake to compile the code. qmake creates yet another makefile at
+
+```
+_build/rpi4_kiosk_dev/lib/webengine_kiosk/obj/Makefile
+```
+
+It is this makefile that actually does the work of cross compiling the dependency using a nerves sysroot.
 
 If you clone my  repo from https://github.com/rogerjames/99/nerves_rpi4_webkiosk_playground and switch to the "roger" branch, the you should have the fix you need to build successfully. If you do not the only change change the :webengine_kiosk dependency to pull from github rather than the local filesystem.
 
 ## Building
 
-To build the firmware you need to a mix deps.update --all followed by a mix firmware. This is the output I get on my system.
+To build the firmware you need to a mix deps.update --all followed by a mix firmware. This is the output I get on my system. You can probably get away with just a mix deps.get instead of the update.
 
 ```
 roger@dragon:~/nerves/nerves_rpi4_webkiosk_playground$ mix deps.update --all
