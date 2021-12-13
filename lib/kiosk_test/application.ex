@@ -13,7 +13,7 @@ defmodule NervesWebKioskPlayground.Application do
       sounds: false,
 
       data_dir: "/root/browser/",
-      homepage: "file:///priv/www/index.html",
+      homepage: "file:///srv/erlang/lib/webengine_kiosk-0.4.0/priv/www/index.html",
 
       run_as_root: true,
       platform_udev: true,
