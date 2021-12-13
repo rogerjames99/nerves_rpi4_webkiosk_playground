@@ -13,7 +13,7 @@ defmodule NervesWebKioskPlayground.Application do
       sounds: false,
 
       data_dir: "/root/browser/",
-      homepage: "about:blank",
+      homepage: "file:///priv/www/index.html",
 
       run_as_root: true,
       platform_udev: true,
