@@ -1,6 +1,6 @@
 # Building rpi4_webkiosk_playground
 
-These instructions document what I  did to build rpi4_webkiosk_playground on my Ubuntu 21.10 system.
+These instructions document what I did to build rpi4_webkiosk_playground on my Ubuntu 21.10 system.
 
 ## Summary
 
@@ -120,13 +120,15 @@ _build/rpi4_kiosk_dev/lib/webengine_kiosk/obj/Makefile
 
 It is this makefile that actually does the work of cross compiling the dependency using a nerves sysroot.
 
-If you clone my  repo from https://github.com/rogerjames/99/nerves_rpi4_webkiosk_playground and switch to the "roger" branch, the you should have the fix you need to build successfully. If you do not the only change is to the :webengine_kiosk dependency. This need to pull from github rather than the local filesystem.
+If you clone this repo from https://github.com/rogerjames/99/nerves_rpi4_webkiosk_playground then you should have the fix you need to build successfully. If you do not the only change is to the :webengine_kiosk dependency. This needs to pull from github rather than the local filesystem.
 
 ## Building
 
-To build the firmware you need to a mix deps. followed by a mix firmware. This is the output I get on my system. You can probably get away with just a mix deps.get instead of the update.
+To build the firmware you need to do  a mix deps.get followed by a mix firmware. This is the output I get on my system. You can probably get away with just a mix deps.get instead of the update.
 
 ```
+# mix deps.get should work just as well the first time you do this.
+
 roger@dragon:~/nerves/nerves_rpi4_webkiosk_playground$ mix deps.update --all
 * Updating webengine_kiosk (https://github.com/elcritch/webengine_kiosk.git)
 origin/HEAD set to master
