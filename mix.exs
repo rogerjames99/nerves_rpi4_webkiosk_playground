@@ -3,7 +3,7 @@ defmodule NervesWebKioskPlayground.MixProject do
 
   @app :nerves_web_kiosk_playground
   @version "0.1.0"
-  @all_targets [:rpi3, :rpi3a, :rpi4, :x86_64, :rpi4_kiosk]
+  @all_targets [:rpi4_kiosk]
 
   def project do
     [
