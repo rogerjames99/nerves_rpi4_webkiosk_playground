@@ -20,6 +20,9 @@ roger@dragon:~$ echo $MIX_TARGET
 rpi4_kiosk
 ```
 
+
+
+
 The next important step is to ensure that the required qt5 are packages installed. This is what is on my system. There are probably a lot of redundant packages here.  
 
 ```
@@ -111,6 +114,14 @@ ii  libqt5xml5:amd64                                            5.15.2+dfsg-12  
 ii  libqt5xmlpatterns5:amd64                                    5.15.2-3                                        amd64        Qt 5 XML patterns module
 ii  libqt5xmlpatterns5-dev:amd64                                5.15.2-3                                        amd64        Qt 5 XML patterns development files 
 ```
+
+## Possibly Minimal Requirements
+
+It might be you're getting away with installing the following minimal requirements:
+
+    sudo apt install qt5-qmake qtbase5-dev-tools
+    export QT_SELECT=qt5
+
 
 A basic qt5 installation is required on your host machine because the webengine_kiosk dependency is compiled using elixir_make. This uses the Makefile in root of webengine_kiosk dependency. This makefile calls qmake to compile the code. qmake creates yet another makefile at
 
