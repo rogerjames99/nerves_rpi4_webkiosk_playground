@@ -119,7 +119,7 @@ ii  libqt5xmlpatterns5-dev:amd64                                5.15.2-3        
 
 It might be you're getting away with installing the following minimal requirements:
 
-    sudo apt install qt5-qmake qtbase5-dev-tools
+    sudo apt install qt5-qmake qtbase5-dev-tools qtwebengine5-dev qtmultimedia5-dev libqt5virtualkeyboard5-dev
     export QT_SELECT=qt5
 
 
